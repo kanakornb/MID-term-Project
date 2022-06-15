@@ -1,0 +1,76 @@
+#include <iostream>
+using namespace std;
+#include "pro.h"
+#include "string.h"
+#include <ctype.h>
+int main (int argc,char *argv[])
+{ 
+  int x;
+  int i,k;
+  int s,e;
+  string n;
+  int a[i],b[i];
+  cout<<"Please confirm how many classes you want to build:"       <<endl;
+  cin>>x;
+  profession z[x],*p;
+  for(i=1; i<=x; i++){
+    cout<<"What is your job?"<<endl;
+    cin>>n;
+    cout<<"How much experiences do you have in your field?(in years)"<<endl;
+    cin>>e;
+    a[i-1]= e;
+    cout<<"What is your annual income?"<<endl;
+    cin>>s;
+    b[i-1]= s;
+    z[i-1].set_all(n,e,s);
+  }
+  cout<<"What do you want to be sorted? "<<endl;
+  cout<<"1.Salary"<<endl<<"2.Experince"<<endl;
+  cin>>k;
+
+  if(k==1){
+    cout<<"1.Ascending or 2.Descending?(Please choose 1 or 2)"       <<endl;
+    cin>>i;
+    if(i==1) {
+      insertionSortUp(b,x);
+      for(i=1;i<=x;i++){
+    cout<<"Salary "<<i<<". "<<b[i-1]<<endl;
+  }
+      cout<<"Highest salary is "<<b[x-1]<<endl;
+      cout<<"Lowest salary is "<<b[0]<<endl;
+      } 
+        
+    if(i==2) {
+      insertionSortDown(b,x);
+      for(i=1;i<=x;i++){
+    cout<<"Salary "<<i<<". "<<b[i-1]<<endl;
+  }
+      cout<<"Highest salary is "<<b[0]<<endl;
+      cout<<"Lowest salary is "<<b[x-1]<<endl;
+      } 
+    }
+
+  if(k==2){
+    cout<<"1.Ascending or 2.Descending?(Please choose 1 or 2)"       <<endl;
+    cin>>i;
+    if(i==1){
+      insertionSortUp(a,x);
+      for(i=1;i<=x;i++){
+    cout<<"Experience "<<i<<". "<<a[i-1]<<" yrs"<<endl;
+  }
+      cout<<"Highest experience year is "<<a[x-1]<<" yrs"<<endl;
+      cout<<"Lowest experience year is "<<a[0]<<" yrs"<<endl;
+      } 
+    if(i==2) {
+      insertionSortDown(a,x);
+      for(i=1;i<=x;i++){
+    cout<<"Experience "<<i<<". "<<a[i-1]<<endl;
+  }
+      cout<<"Highest experience year is "<<a[0]<<" yrs"<<endl;
+      cout<<"Lowest experience year is "<<a[x-1]<<" yrs"<<endl;
+      } 
+    }
+
+  delete[] p;
+
+  }
